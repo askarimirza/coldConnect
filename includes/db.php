@@ -6,6 +6,7 @@
  *  2. Local MySQL (XAMPP default localhost:3306).
  *  3. Seamless Zero-Config SQLite Fallback for Vercel Serverless / Instant Preview.
  */
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 
 $isVercel = !empty(getenv('VERCEL')) || !empty($_ENV['VERCEL']) || !empty($_SERVER['VERCEL']);
 $dbHost   = getenv('DB_HOST') ?: (getenv('MYSQLHOST') ?: null);
@@ -65,10 +66,16 @@ if (!$pdo) {
         ]);
         $pdo->exec('PRAGMA foreign_keys = ON;');
 
-        // Register custom SQL functions for MySQL compatibility
-        $pdo->sqliteCreateFunction('NOW', function() {
-            return date('Y-m-d H:i:s');
-        });
+        // Register custom SQL functions for MySQL compatibility (PHP 8.1 to 8.5+ compatible)
+        if (is_callable([$pdo, 'createFunction'])) {
+            $pdo->createFunction('NOW', function() {
+                return date('Y-m-d H:i:s');
+            });
+        } elseif (is_callable([$pdo, 'sqliteCreateFunction'])) {
+            @$pdo->sqliteCreateFunction('NOW', function() {
+                return date('Y-m-d H:i:s');
+            });
+        }
 
         if ($needsSeed) {
             initSqliteDatabase($pdo);

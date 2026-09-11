@@ -4,6 +4,10 @@
  * Dynamically routes incoming serverless requests to project PHP endpoints.
  */
 
+// Output buffering prevents premature output from breaking session_start() and header redirects
+ob_start();
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+
 // Extract path and query string
 $parts = parse_url($_SERVER['REQUEST_URI'] ?? '/');
 $uri = trim($parts['path'] ?? '/', '/');
