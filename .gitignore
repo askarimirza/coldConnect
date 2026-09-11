@@ -1,0 +1,4 @@
+agristorage.sqlite
+*.sqlite
+*cookies*.txt
+.vercel

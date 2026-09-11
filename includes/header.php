@@ -150,6 +150,13 @@ if ($user && isset($pdo)) {
 </head>
 <body>
 
+<?php if (defined('IS_SQLITE_DEMO') && IS_SQLITE_DEMO): ?>
+<div style="background: linear-gradient(90deg, #1e3a8a, #2563eb); color: #fff; font-size: 0.82rem; padding: 6px 15px; text-align: center; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+    <span><i class="fa-solid fa-circle-check" style="color: #6ee7b7; margin-right: 4px;"></i><strong>Cloud Demo Mode:</strong> Running with pre-loaded database (Demo Farmers, Facilities &amp; Bookings).</span>
+    <span style="opacity: 0.88; font-size: 0.76rem;">(Set <code>DB_HOST</code> in Vercel to link your persistent MySQL database)</span>
+</div>
+<?php endif; ?>
+
 <!-- Main Navigation Bar -->
 <header class="navbar">
     <div class="container nav-container">

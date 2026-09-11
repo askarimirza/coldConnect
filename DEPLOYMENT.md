@@ -4,16 +4,10 @@ This guide provides step-by-step instructions for deploying **Agri Storage** to 
 
 ---
 
-## Important Notice: PHP & MySQL in the Cloud
-
-**Agri Storage** is built with **PHP 8** and **MySQL (PDO)**.
-
-* **Vercel** is a serverless platform designed for stateless compute. It runs PHP using the `@vercel/php` community serverless runtime, but **Vercel does NOT host MySQL databases**.
-* Therefore, to deploy to Vercel, you need:
-  1. A **Free Cloud MySQL Database** (takes 2 minutes to create on Aiven, Railway, or Clever Cloud).
-  2. The code deployed on Vercel with environment variables pointing to your cloud MySQL.
-
-If you want **1-click deployment where both PHP and MySQL are hosted together**, we recommend **Railway.app** (see Option B below).
+## Quick Start: Instant Zero-Config Deployment on Vercel
+The app is configured to deploy to Vercel **instantly with zero manual configuration**:
+* **Out-of-the-Box Demo Mode:** If you deploy without environment variables, the app automatically initializes an in-memory SQLite demo database with pre-loaded Gujarat cold storage facilities, demo farmer/owner accounts, and active bookings.
+* **Persistent Cloud MySQL (Production):** When you want permanent, shared data across users, simply add your Cloud MySQL credentials (`DB_HOST`, `DB_USER`, `DB_PASS`, `DB_NAME`) in the Vercel Project Settings &rarr; Environment Variables.
 
 ---
 

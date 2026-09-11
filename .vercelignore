@@ -1,0 +1,8 @@
+.git
+.gitignore
+*.pdf
+*.txt
+docs/
+generate_docs_pdf.py
+agristorage.sqlite
+database.sql
