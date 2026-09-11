@@ -81,7 +81,7 @@ require_once __DIR__ . '/includes/header.php';
             <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.5px;">
                 Judge Logins
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <div class="judge-logins-grid">
                 <button type="button" class="btn btn-outline-primary btn-sm" onclick="quickFill('demo@coldconnect.test', 'demo123')">
                     <i class="fa-solid fa-wheat-awn"></i> Demo Farmer
                 </button>

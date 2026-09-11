@@ -39,6 +39,12 @@
             </div>
         </div>
 
+        <!-- Team Members Attribution Line (Single-line Compact) -->
+        <div class="footer-team-line">
+            <span class="team-label"><i class="fa-solid fa-users" style="color: #38bdf8; margin-right: 6px;"></i><strong>Team Members:</strong></span>
+            <span class="team-names">1. Askari Mirza &nbsp;&bull;&nbsp; 2. Maazz Shaikh &nbsp;&bull;&nbsp; 3. Dipak Gohel &nbsp;&bull;&nbsp; 4. Prajapati Chirag</span>
+        </div>
+
         <div class="footer-bottom">
             <div>
                 &copy; <?php echo date('Y'); ?> Agri Storage. All rights reserved. Designed for local prototype demonstration.
