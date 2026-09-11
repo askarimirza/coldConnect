@@ -66,17 +66,6 @@ if (!$pdo) {
         ]);
         $pdo->exec('PRAGMA foreign_keys = ON;');
 
-        // Register custom SQL functions for MySQL compatibility (PHP 8.1 to 8.5+ compatible)
-        if (is_callable([$pdo, 'createFunction'])) {
-            $pdo->createFunction('NOW', function() {
-                return date('Y-m-d H:i:s');
-            });
-        } elseif (is_callable([$pdo, 'sqliteCreateFunction'])) {
-            @$pdo->sqliteCreateFunction('NOW', function() {
-                return date('Y-m-d H:i:s');
-            });
-        }
-
         if ($needsSeed) {
             initSqliteDatabase($pdo);
         }

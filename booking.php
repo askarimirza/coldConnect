@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_booking'])) {
         try {
             $insertStmt = $pdo->prepare("
                 INSERT INTO bookings (farmer_id, storage_id, pickup_location, crop, quantity, start_date, end_date, total_cost, has_insurance, insurance_rate, insurance_fee, status, created_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Pending', NOW())
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Pending', CURRENT_TIMESTAMP)
             ");
             $insertStmt->execute([
                 $user['id'],

@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $insertStmt = $pdo->prepare("
                 INSERT INTO cold_storages 
                 (owner_id, name, location, available_capacity, total_capacity, temperature, price_per_kg, supported_crops, minimum_quantity, contact, status, created_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
             ");
             $insertStmt->execute([
                 $user['id'],
