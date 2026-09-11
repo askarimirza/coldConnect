@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "framework": null,
   "builds": [
     {
       "src": "*.php",
@@ -25,31 +24,8 @@
   ],
   "routes": [
     {
-      "src": "/",
-      "dest": "/index.php"
-    },
-    {
-      "src": "/css/(.*)",
-      "dest": "/css/$1"
-    },
-    {
-      "src": "/js/(.*)",
-      "dest": "/js/$1"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/owner/(.*)",
-      "dest": "/owner/$1"
-    },
-    {
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ],
-  "env": {
-    "BASE_URL": "/"
-  }
+  ]
 }
